@@ -221,6 +221,18 @@ cuda_utils_extension = CUDAExtension(
 ext_modules.append(cuda_utils_extension)
 
 
+# Erasure code operations.
+erasure_code_extension = CUDAExtension(
+    name="vllm.erasure_code_ops",
+    sources=["csrc/erasure_code.cpp", "csrc/erasure_code_kernels.cu"],
+    extra_compile_args={
+        "cxx": CXX_FLAGS,
+        "nvcc": NVCC_FLAGS,
+    },
+)
+ext_modules.append(erasure_code_extension)
+
+
 def get_path(*filepath) -> str:
     return os.path.join(ROOT_DIR, *filepath)
 

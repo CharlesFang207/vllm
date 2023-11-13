@@ -31,6 +31,9 @@ import torch
 from torch import nn
 from transformers import LlamaConfig
 
+import peft
+from peft import PeftModel
+
 from vllm.model_executor.input_metadata import InputMetadata
 from vllm.model_executor.layers.activation import SiluAndMul
 from vllm.model_executor.layers.layernorm import RMSNorm
